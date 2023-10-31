@@ -37,8 +37,8 @@ Hard = ["BACKGROUND","BOOKWORM","FIREFIGHTER","SOUNDPROOF","THUNDERSTORM",\
 
 Color = ["BLACK","WHITE","RED","GREEN","BLUE","GREY"]
 
-Font = pygame.font.Font("Typo_DabangguB.ttf",33)
-Font2 = pygame.font.Font("Typo_DabangguB.ttf",20)
+Font = pygame.font.Font("/Users/junggonlee/Projects/python_game/python game/Typo_DabangguB.ttf",33)
+Font2 = pygame.font.Font("/Users/junggonlee/Projects/python_game/python game/Typo_DabangguB.ttf",20)
 
 Display.fill(WHITE)
 
