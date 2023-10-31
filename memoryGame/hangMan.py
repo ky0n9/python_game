@@ -13,15 +13,19 @@ def run_game():
     RED = (255,0,0)
     GREEN = (0,255,0)
     BLUE = (0,0,255)
-
     GREY = (200,200,200)
-
     LEFT_CLICK = (1,0,0)
     RIGHT_CLICK = (0,0,1)
-
+    
+    #파이게임 초기화
     pygame.init()
 
+    # 게임 타이틀 설정
     pygame.display.set_caption("행맨")
+    
+    # 배경 이미지 로드
+    background_image = pygame.image.load('western.jpg')
+    background_rect = background_image.get_rect()
 
     #32 bit display
     Display = pygame.display.set_mode((500,500))
@@ -75,6 +79,9 @@ def run_game():
             Word = Color[number]
             
         return Word
+
+    # 배경 이미지 그리기
+    Display.blit(background_image, background_rect)
 
     #기본 행맨 그림
     def Hangman(condition):
