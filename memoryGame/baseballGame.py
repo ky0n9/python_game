@@ -14,7 +14,7 @@ def run_game():
     pygame.display.set_caption("숫자 야구")
     
     # 배경 이미지 로드
-    background_image = pygame.image.load('baseballGround.jpg')
+    background_image = pygame.image.load('baseball.png')
     background_rect = background_image.get_rect()
 
     # 폰트 설정
@@ -23,7 +23,7 @@ def run_game():
     font_color = (0, 0, 0) # 폰트 색상 설정
     
     #게임 제목 설정
-    gametitle_text = title_font.render("숫자 야구", True, (0, 0, 0))
+    gametitle_text = title_font.render("", True, (0, 0, 0))
 
     # 난수로 4자리 비밀 번호 생성
     def generate_secret_number():
@@ -84,7 +84,7 @@ def run_game():
         Display.fill((255, 255, 255))
 
         # 게임 상태 표시
-        attempts_text = font.render(f"시도 횟수: {attempts}", True, font_color)
+        attempts_text = font.render(f"{attempts}", True, font_color)
         user_input_text = font.render(f"입력한 답: {user_input}", True, font_color)
         result_surface = font.render(result_text, True, font_color)
         
@@ -92,7 +92,7 @@ def run_game():
         Display.blit(background_image, background_rect)
         
         Display.blit(gametitle_text, (270, 50))
-        Display.blit(attempts_text, (290, 190))
+        Display.blit(attempts_text, (390, 190))
         Display.blit(user_input_text, (260, 300))
         Display.blit(result_surface, (240, 410))
                 
