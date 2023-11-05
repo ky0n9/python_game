@@ -3,7 +3,7 @@ from Baseball import BaseballGame
 from Hangman import HangmanGame
 from Updown import UpdownGame
 from Rembernumber import RembernumberGame
-import color
+
 pygame.init()
 
 # 화면 설정

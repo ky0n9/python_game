@@ -1,7 +1,8 @@
 import pygame
 import random
 import font
-import color
+from memoryGame import color
+
 
 class BaseballGame:
     def __init__(self, screen):
@@ -43,17 +44,18 @@ class BaseballGame:
         elif self.attempts >= self.max_attempts:
             self.guess_colors = [color.RED, color.RED, color.RED]
             self.result_message = f"게임 오버! 정답은 {self.secret_number[0]}{self.secret_number[1]}{self.secret_number[2]}"
+            self.result_font = font.variablefont_medium
         else:
             for i in range(3):
                 self.guess_colors[i] = color.GREEN if guess[i] == self.secret_number[i] else color.RED
-            self.result_message = f"{correct_positions}개 숫자와 위치가 일치, {correct_digits}개 숫자만 일치"
+            self.result_message = self.font2.render(f"{correct_positions}개 숫자와 위치가 일치, {correct_digits}개 숫자만 일치", True,
+                                                    color.BLACK)
 
         self.game_over = True
 
     def draw(self):
         self.screen.fill(color.WHITE)
 
-            
         for i in range(3):
             digit = str(self.guess[i])
             x = 300 + 60 * i

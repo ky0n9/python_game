@@ -4,7 +4,7 @@ import random
 import time
 import re
 from pygame.locals import *
-import color
+from memoryGame import color
 import font
 
 
@@ -148,7 +148,7 @@ class HangmanGame:
         last_key_pressed = ""
         self.display.blit(
             font.variablefont_small.render(
-                "게임을 종료하려면 0을 누르세요.", True,color.BLACK), (20, 10))
+                "게임을 종료하려면 0을 누르세요.", True, color.BLACK), (20, 10))
 
         while True:
             self.hangman(self.condition)
@@ -183,7 +183,7 @@ class HangmanGame:
                         self.display.blit(hidden, hidden_rect)
                     else:
                         if event.key == K_0 or event.key == 256:
-                            self.display.blit(self.font.render("EXIT?", True,color.RED), (340, 220))
+                            self.display.blit(self.font.render("EXIT?", True, color.RED), (340, 220))
                             self.display.blit(self.font2.render("Yes", True, color.blue), (340, 270))
                             self.display.blit(self.font2.render("No", True, color.blue), (415, 270))
                         else:

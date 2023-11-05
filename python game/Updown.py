@@ -1,7 +1,6 @@
 import pygame
 import random
-import color
-import font
+from memoryGame import color
 
 
 class UpdownGame:
