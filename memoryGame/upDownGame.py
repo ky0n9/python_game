@@ -21,6 +21,10 @@ def run_game():
     image_rect = image.get_rect()
     image_rect.topleft = (5200, 1000)
 
+    background = pygame.image.load("updown-background.png")
+    background = pygame.transform.scale(background,(1200,1200))
+    background_rect = background.get_rect()
+
     font = pygame.font.SysFont("malgungothic", 36)
     title_font = pygame.font.SysFont("malgungothic", 70)
     result_font = pygame.font.SysFont("malgungothic", 120)
@@ -68,14 +72,14 @@ def run_game():
                             input_num_text = font.render("", True, (BLCAK))
                             up_text = font.render("UP",True,BLCAK)
                             down_text = font.render("",True,BLCAK)
-                            image_rect.topleft = (490, 80)
+                            image_rect.topleft = (490, 150)
                             rotated_image = pygame.transform.rotate(image,90)
                             rotated_image.fill(BLUE, special_flags=pygame.BLEND_ADD)
                         elif int(input_num) > random_code:
                             input_num_text = font.render("", True, (BLCAK))
                             up_text =font.render("",True,BLCAK)
                             down_text = font.render("DOWN",True,BLCAK)
-                            image_rect.topleft = (490, 200)
+                            image_rect.topleft = (490, 300)
                             rotated_image = pygame.transform.rotate(image, -90)
                             rotated_image.fill(RED, special_flags=pygame.BLEND_ADD)
                 elif event.key in (pygame.K_0, pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8, pygame.K_9):
@@ -88,12 +92,13 @@ def run_game():
         trynum_text = font.render(f"남은 시도 횟수{trynum}", True, (BLCAK))
         input_num_text = font.render(f"입력한 답: {input_num}", True, (BLCAK))
 
-        Display.blit(gametitle_text, (340, 50))
-        Display.blit(trynum_text, (350, 100))
+        Display.blit(background, background_rect)
+        Display.blit(gametitle_text, (320, 50))
+        Display.blit(trynum_text, (350, 120))
         Display.blit(input_num_text,(350,250))
         Display.blit(result_text,(160 ,350))
-        Display.blit(up_text,(520,200))
-        Display.blit(down_text,(505,300))
+        Display.blit(up_text,(520,260))
+        Display.blit(down_text,(505,400))
         Display.blit(rotated_image, image_rect)
         pygame.display.update()
 

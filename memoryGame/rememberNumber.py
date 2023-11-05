@@ -22,8 +22,8 @@ def run_game():
         rows = 5
         columns = 9
 
-        cell_size = 110  # 각 Grid cell 별 가로, 세로 크기
-        button_size = 90  # Grid cell 내에 실제로 그려질 버튼 크기
+        cell_size = 100  # 각 Grid cell 별 가로, 세로 크기
+        button_size = 80  # Grid cell 내에 실제로 그려질 버튼 크기
         screen_left_margin = 40  # 전체 스크린 왼쪽 여백
         screen_top_margin = 10 # 전체 스크린 위쪽 여백
 
@@ -137,7 +137,12 @@ def run_game():
     display_time = None
     start_ticks = None
 
-    start_button = pygame.Rect(0, 0, 120, 120)
+    background = pygame.image.load("remember-background.jpg")
+    background = pygame.transform.scale(background, (1200, 1200))
+    background_rect = background.get_rect()
+    Display.blit(background, background_rect)
+
+    start_button = pygame.Rect(250, 200, 120, 120)
     start_button_text = start_font.render(f"{round_level}라운드 시작", True, BLACK)
     start_button.center = (120, screen_height - 120)
     pygame.draw.circle(Display, BLACK, start_button.center, 60, 5)
