@@ -12,7 +12,11 @@ def main():
     screen_width = 800
     screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
-    pygame.display.set_caption("메인 메뉴")
+    pygame.display.set_caption("메모리 게임")
+
+    # 배경 이미지 로드
+    background_image = pygame.image.load('main.png')
+    background_rect = background_image.get_rect()
 
     # 게임 변수
     current_game = None  # 현재 실행 중인 게임을 저장할 변수
@@ -24,7 +28,7 @@ def main():
 
     # 화면에 타이틀 텍스트 그리기
     title_font = pygame.font.SysFont("malgungothic", 48)
-    gametitle_text = title_font.render("메모리 게임", True, (255, 255, 255))
+    gametitle_text = title_font.render("", True, (255, 255, 255))
     title_rect = gametitle_text.get_rect()
     title_rect.center = (screen_width // 2, 100)
     
@@ -56,7 +60,8 @@ def main():
             #current_game.main()  # 현재 게임 실행
             current_game
 
-        screen.fill((20, 184, 20))
+        # 배경 이미지 그리기
+        screen.blit(background_image, background_rect)
 
         # 게임 타이틀 그리기
         screen.blit(gametitle_text, title_rect)

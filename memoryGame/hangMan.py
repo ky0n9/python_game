@@ -24,7 +24,8 @@ def run_game():
     pygame.display.set_caption("행맨")
     
     # 배경 이미지 로드
-    background_image = pygame.image.load('western.jpg')
+    background_main_image = pygame.image.load('hangman_main.png')
+    background_image = pygame.image.load('western.png')
     background_rect = background_image.get_rect()
 
     #32 bit display
@@ -42,8 +43,6 @@ def run_game():
 
     Color = ["BLACK","WHITE","RED","GREEN","BLUE","GREY"]
 
-    #Font = pygame.font.Font("/Users/junggonlee/Projects/python_game/python game/Typo_DabangguB.ttf",33)
-    #Font2 = pygame.font.Font("/Users/junggonlee/Projects/python_game/python game/Typo_DabangguB.ttf",20)
     Font = pygame.font.SysFont("malgungothic",33)
     Font2 = pygame.font.SysFont("malgungothic",20)
 
@@ -81,7 +80,7 @@ def run_game():
         return Word
 
     # 배경 이미지 그리기
-    Display.blit(background_image, background_rect)
+    Display.blit(background_main_image, background_rect)
 
     #기본 행맨 그림
     def Hangman(condition):
@@ -147,12 +146,9 @@ def run_game():
             
     #메인화면
     def StartScreen():
-        Display.blit(pygame.font.SysFont("malgungothic",40).render("행 맨",True,BLACK), (210,20))
-        Display.blit(Font.render("난이도",True,BLACK), (290,130))
         Display.blit(Font2.render("1 - 쉬움",True,BLACK), (290,200))
         Display.blit(Font2.render("2 - 보통",True,BLACK), (290,250))
         Display.blit(Font2.render("3 - 어려움",True,BLACK), (290,300))
-        #Display.blit(Font2.render("4 - 색깔",True,GREY), (200,350))
             
     def main():
         BLACK = (0,0,0)
@@ -234,6 +230,9 @@ def run_game():
         TheWord = List(TheNum, TheChoice)
 
         EmptyList = []
+
+        # 배경 이미지 그리기
+        Display.blit(background_image, background_rect)
 
         for i in range(len(TheWord)):
             EmptyList.append('-')
