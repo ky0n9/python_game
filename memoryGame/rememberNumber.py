@@ -24,6 +24,8 @@ start_button = pygame.Rect(250, 250, 300, 300)
 start_button.center = (415, 185)
 
 
+
+
 # 레벨에 맞게 설정
 def setup(level):
     # 얼마동안 숫자를 보여줄지
@@ -82,7 +84,6 @@ def shuffle_grid(number_count):
 def display_start_screen():
     pygame.draw.rect(screen, BLACK, (200,120,440,140),8)
 
-
     msg = game_font.render(f"{curr_level}라운드 시작", True, BLACK)
     msg_rect = msg.get_rect(center=start_button.center)
     screen.blit(msg, msg_rect)
@@ -131,6 +132,9 @@ def check_number_buttons(pos):
                     hidden = True  # 숫자 숨김 처리
             else:  # 잘못된 숫자 클릭
                 game_over()
+                pygame.time.delay(7000)
+                # 게임 종료
+                pygame.quit()
             break
 
     # 모든 숫자를 다 맞혔다면? 레벨을 높여서 다시 시작 화면으로 감
@@ -151,8 +155,7 @@ def game_over():
 
     screen.fill(BLACK)
     screen.blit(msg, msg_rect)
-
-
+    pygame.display.update()
 
 def run_game():
     # 초기화
@@ -166,7 +169,6 @@ def run_game():
     display_time = None  # 숫자를 보여주는 시간
     start_ticks = None  # 시간 계산 (현재 시간 정보를 저장)
 
-    # 게임 시작 전에 게임 설정 함수 수행
     setup(curr_level)
 
     # 게임 루프
@@ -178,11 +180,9 @@ def run_game():
         for event in pygame.event.get():  # 어떤 이벤트가 발생하였는가?
             if event.type == pygame.QUIT:  # 창이 닫히는 이벤트인가?
                 running = False  # 게임이 더 이상 실행중이 아님
+
             elif event.type == pygame.MOUSEBUTTONUP:  # 사용자가 마우스를 클릭했을때
                 click_pos = pygame.mouse.get_pos()
-                # print(click_pos)
-
-
             screen.fill(WHITE)
             background = pygame.image.load("remember-background.jpg")
             background = pygame.transform.scale(background, (800, 800))
@@ -191,10 +191,9 @@ def run_game():
             screen.blit(background, background_rect)
 
         if start:
-            display_game_screen()  # 게임 화면 표시
+            display_game_screen() # 게임 화면 표시
         else:
             display_start_screen()  # 시작 화면 표시
-
         # 사용자가 클릭한 좌표값이 있다면 (어딘가 클릭했다면)
         if click_pos:
             check_buttons(click_pos)
