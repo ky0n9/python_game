@@ -30,8 +30,8 @@ def run_game():
 
     #32 bit display
     Display = pygame.display.set_mode((500,500))
-
-    Easy = ["BELL","STAR","PICNIC", "PIE","HAT","HEART","FLAG"]
+    
+    Easy = ["BELL", "STAR", "PICNIC", "PIE", "HAT", "HEART", "FLAG"]
 
     Medium = ["CARPET","POPCORN","SEAFOOD","DOORBELL","COWBOY",\
             "INSIDE","OUTSIDE","RAINBOW","POSTMAN","WATERMELON",\
@@ -51,7 +51,7 @@ def run_game():
     def randomNum(choice):
         RandomNum = 0
         if choice == 1:
-            RandomNum == random.randint(0,len(Easy)-1)
+            RandomNum = random.randint(0,len(Easy)-1)
 
         elif choice == 2:
             RandomNum = random.randint(0,len(Medium)-1)
@@ -60,7 +60,7 @@ def run_game():
             RandomNum = random.randint(0,len(Hard)-1)
 
         elif choice == 4:
-            RandomNum =  random.randint(0,len(Color)-1)# as elements of color is 0,1,2,3,4
+            RandomNum = random.randint(0,len(Color)-1)# as elements of color is 0,1,2,3,4
             
         return RandomNum
 
@@ -375,15 +375,14 @@ def run_game():
                 Word2Rect = Word2.get_rect()
                 Word2Rect.center = (250,285)
                 Display.blit(Word2,Word2Rect)
-                
-                Off = 1         
+                Off = 1
 
             pygame.display.update()
             pygame.time.Clock().tick(30) #30fps
             
             if (Off == 1):
                 #5초 대기
-                time.sleep(5)
+                time.sleep(3)
                 #게임 종료
                 pygame.quit()
                 sys.exit()
