@@ -27,7 +27,12 @@ def run_game():
 
     font = pygame.font.SysFont("malgungothic", 36)
     title_font = pygame.font.SysFont("malgungothic", 70)
-    result_font = pygame.font.SysFont("malgungothic", 120)
+    result_font = pygame.font.SysFont("malgungothic", 80)
+    result_font2 = pygame.font.SysFont("malgungothic", 65)
+    # font = pygame.font.Font("/Users/junggonlee/Downloads/13151B114AE7E3A025/malgunbd.ttf",36)
+    # title_font = pygame.font.Font("/Users/junggonlee/Downloads/13151B114AE7E3A025/malgunbd.ttf", 70)
+    # result_font = pygame.font.Font("/Users/junggonlee/Downloads/13151B114AE7E3A025/malgunbd.ttf", 80)
+    # result_font2 = pygame.font.Font("/Users/junggonlee/Downloads/13151B114AE7E3A025/malgunbd.ttf", 65)
     result_text = font.render("", True, BLCAK)
     gametitle_text = title_font.render("업다운 게임", True, (0, 0, 0))
     random_code = random_num()
@@ -61,7 +66,7 @@ def run_game():
                     else:
                         if int(input_num) == random_code:
                             Display.fill(WHITE)
-                            result_text = result_font.render(f"축하 합니다 정답입니다!",True,BLCAK)
+                            result_text = result_font2.render(f"축하 합니다 정답입니다!",True,BLCAK)
                             image_rect.topleft = (52000, 52000)
                             input_num_text = font.render("", True, (BLCAK))
                             up_text = font.render("", True, BLCAK)
@@ -72,14 +77,14 @@ def run_game():
                             input_num_text = font.render("", True, (BLCAK))
                             up_text = font.render("UP",True,BLCAK)
                             down_text = font.render("",True,BLCAK)
-                            image_rect.topleft = (490, 150)
+                            image_rect.topleft = (520, 150)
                             rotated_image = pygame.transform.rotate(image,90)
                             rotated_image.fill(BLUE, special_flags=pygame.BLEND_ADD)
                         elif int(input_num) > random_code:
                             input_num_text = font.render("", True, (BLCAK))
                             up_text =font.render("",True,BLCAK)
                             down_text = font.render("DOWN",True,BLCAK)
-                            image_rect.topleft = (490, 300)
+                            image_rect.topleft = (520, 300)
                             rotated_image = pygame.transform.rotate(image, -90)
                             rotated_image.fill(RED, special_flags=pygame.BLEND_ADD)
                 elif event.key in (pygame.K_0, pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8, pygame.K_9):
@@ -93,12 +98,12 @@ def run_game():
         input_num_text = font.render(f"입력한 답: {input_num}", True, (BLCAK))
 
         Display.blit(background, background_rect)
-        Display.blit(gametitle_text, (320, 50))
-        Display.blit(trynum_text, (350, 120))
-        Display.blit(input_num_text,(350,250))
+        Display.blit(gametitle_text, (220, 50))
+        Display.blit(trynum_text, (260, 140))
+        Display.blit(input_num_text,(250,250))
         Display.blit(result_text,(160 ,350))
-        Display.blit(up_text,(520,260))
-        Display.blit(down_text,(505,400))
+        Display.blit(up_text,(540,260))
+        Display.blit(down_text,(525,400))
         Display.blit(rotated_image, image_rect)
         pygame.display.update()
 
