@@ -55,6 +55,7 @@ def run_game():
                     attempts += 1
                     if len(user_input) != 4 or not user_input.isdigit():
                         user_input = ""
+                        result_text = "4자리 숫자를 입력하세요."
                         continue
 
                     # 스트라이크와 볼 계산
